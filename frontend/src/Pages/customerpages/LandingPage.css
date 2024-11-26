@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #007bff, #00d4ff);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #ffdd57;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero .btn-primary {
+  background-color: #ffdd57;
+  color: #fbfdff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  max-width: none !important;
+  width: auto; /* Ensure button width is not 100% */
+}
+
+.hero .btn-primary,
+input[type="button"].btn-primary {
+  max-width: none !important;
+  width: auto; /* Ensure button width is not 100% */
+}
+
+.hero .btn-primary:hover {
+  background-color: #ffc107;
+  max-width: none;
+}
+
+/* Customer Stories Section */
+.customer-stories {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+}
+
+.customer-stories .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.customer-stories h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.customer-stories .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.customer-stories .card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.customer-stories .card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.customer-stories .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.customer-stories .card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.customer-stories .cta {
+  margin-top: 30px;
+}
+
+.customer-stories .btn-secondary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: auto; /* Ensure button width is not 100% */
+}
+
+.customer-stories .btn-secondary:hover {
+  background-color: #0056b3;
+}

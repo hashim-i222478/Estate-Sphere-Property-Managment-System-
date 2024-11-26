@@ -1,0 +1,117 @@
+/* General Navbar Styling */
+.navbar {
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Navbar Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn{
+  margin-left: 20px;
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Links in Navbar */
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #ffdd57;
+}
+
+/* Buttons in Navbar */
+.navbar-buttons .btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-buttons .btn-outline {
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.navbar-buttons .btn-outline:hover {
+  background-color: white;
+  color: #007bff;
+}
+
+.navbar-buttons .btn-primary {
+  color: white;
+  background-color: #ffdd57;
+}
+
+.navbar-buttons .btn-primary:hover {
+  background-color: #ffc107;
+}
+
+/* Mobile Hamburger Menu */
+.navbar-hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #007bff;
+    width: 100%;
+    max-width: 300px;
+    transform: translateX(100%);
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+  }
+
+  .navbar-links li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .navbar-hamburger {
+    display: block;
+  }
+}
