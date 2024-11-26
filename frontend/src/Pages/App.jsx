@@ -9,6 +9,10 @@ import ResetPassword from "./authpages/ResetPassword";
 import VendorLandingpage from "./vendorpages/VendorLandingpage";
 import Vendorproperty from "./vendorpages/Vendorproperty";
 import VendorProfile from "./vendorpages/VendorProfile";
+import AdminLandingpage from "./adminPages/adminLandingPage";
+import AdminProfile from "./adminPages/AdminProfile";
+import ManageProperty from "./adminPages/ManageProperty";
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +26,10 @@ function App() {
         <Route path="/vendorlandingpage" element={<VendorLandingpage />} />
         <Route path="/vendorproperty" element={<Vendorproperty />} />
         <Route path="/vendorprofile" element={<VendorProfile />} />
+        <Route path="/adminLandingPage" element={<AdminLandingpage />} />
+        <Route path="/adminprofile" element={<AdminProfile />} />
+        <Route path="/propertymanagement" element={<ManageProperty />} />
+
       </Routes>
     </BrowserRouter>
   );
