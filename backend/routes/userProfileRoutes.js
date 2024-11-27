@@ -17,8 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post(
-  "/upload-profile-picture",
+router.post("/upload-profile-picture",
   upload.single("profilePic"),
   async (req, res) => {
     try {
@@ -166,6 +165,66 @@ router.post("/update-account-settings", async (req, res) => {
   } catch (error) {
     console.error("Error updating account settings:", error);
     res.status(500).json({ success: false, message: "Server error." });
+  }
+});
+
+// Get User Profile Route
+router.get("/profile", async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    // Find the user by their email
+    const user = await MemberModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Return the user's profile
+    res.status(200).json({
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      phone: user.phone,
+      address: user.address,
+      bio: user.bio,
+      profilePicture: user.profilePicture,
+      notifications: user.notifications,
+      accountVisibility: user.accountVisibility,
+      accountStatus: user.accountStatus,
+    });
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    res.status(500).json({ message: "An error occurred while fetching the profile." });
+  }
+});
+
+// Get All Users Route
+router.get("/all-users", async (req, res) => {
+  try {
+    const users = await MemberModel.find({});
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching all users:", error);
+    res.status(500).json({ message: "An error occurred while fetching all users." });
+  }
+});
+
+// Delete a user
+router.post("/delete-user", async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ message: "Email is required for deletion." });
+    }
+    const deletedUser = await MemberModel.findOneAndDelete({ email });
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    res.status(200).json({ message: "User deleted successfully!" });
+  } catch (err) {
+    console.error("Error deleting user:", err);
+    res.status(500).json({ message: "Server error while deleting user." });
   }
 });
 

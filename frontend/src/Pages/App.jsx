@@ -12,6 +12,8 @@ import VendorProfile from "./vendorpages/VendorProfile";
 import AdminLandingpage from "./adminPages/adminLandingPage";
 import AdminProfile from "./adminPages/AdminProfile";
 import ManageProperty from "./adminPages/ManageProperty";
+import ManageUserProfile from "./adminPages/ManageUserProfile";
+import UserForm from "../components/AdminComponents/UserForm";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/adminLandingPage" element={<AdminLandingpage />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
         <Route path="/propertymanagement" element={<ManageProperty />} />
+        <Route path="/usermanagement" element={<ManageUserProfile />} />
+        <Route path="/userform" element={<UserForm />} />
 
       </Routes>
     </BrowserRouter>
