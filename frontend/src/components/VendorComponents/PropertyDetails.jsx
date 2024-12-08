@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../../Styles/vendorpages/VendorProperty.css";
 import axios from "axios";
-
 // PropertyDetails Component
 const PropertyDetails = ({ property, onClose }) => {
   if (!property) return null; // If no property is passed, return null

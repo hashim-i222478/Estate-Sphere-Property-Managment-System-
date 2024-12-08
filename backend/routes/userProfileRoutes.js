@@ -30,7 +30,7 @@ router.post("/upload-profile-picture",
           $set: { profilePicture: profilePicPath },
         }
       );
-
+      
       if (result.nModified === 0) {
         return res.json({
           message: "User not found or profile picture was not updated",
