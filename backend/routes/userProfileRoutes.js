@@ -17,8 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post(
-  "/upload-profile-picture",
+router.post("/upload-profile-picture",
   upload.single("profilePic"),
   async (req, res) => {
     try {
@@ -53,7 +52,7 @@ router.post(
 
 // Update Profile Route
 router.post("/update-profile", async (req, res) => {
-  const { name, username, email, phone, address, bio } = req.body;
+  const { name, username, email, phone, address, bio, role } = req.body;
 
   try {
     // Find the user by their email
@@ -70,6 +69,7 @@ router.post("/update-profile", async (req, res) => {
     if (phone) user.phone = phone;
     if (address) user.address = address;
     if (bio) user.bio = bio;
+    if (role) user.role = role;
 
     console.log(user);
 
@@ -168,5 +168,108 @@ router.post("/update-account-settings", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error." });
   }
 });
+
+// Get User Profile Route
+router.get("/profile", async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    // Find the user by their email
+    const user = await MemberModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Return the user's profile
+    res.status(200).json({
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      phone: user.phone,
+      address: user.address,
+      bio: user.bio,
+      profilePicture: user.profilePicture,
+      notifications: user.notifications,
+      accountVisibility: user.accountVisibility,
+      accountStatus: user.accountStatus,
+    });
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    res.status(500).json({ message: "An error occurred while fetching the profile." });
+  }
+});
+
+// Get All Users Route
+router.get("/all-users", async (req, res) => {
+  try {
+    const users = await MemberModel.find({});
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching all users:", error);
+    res.status(500).json({ message: "An error occurred while fetching all users." });
+  }
+});
+
+// Delete a user
+router.post("/delete-user", async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ message: "Email is required for deletion." });
+    }
+    const deletedUser = await MemberModel.findOneAndDelete({ email });
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    res.status(200).json({ message: "User deleted successfully!" });
+  } catch (err) {
+    console.error("Error deleting user:", err);
+    res.status(500).json({ message: "Server error while deleting user." });
+  }
+});
+
+
+// Add a new user
+router.post("/add-user", async (req, res) => {
+  const { name, username, email, phone, address, bio, password, role } = req.body;
+
+  if (!name || !username || !email || !password) {
+    return res.status(400).json({ message: "All required fields must be filled." });
+  }
+
+  try {
+    // Check if the user already exists
+    const existingUser = await MemberModel.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "User already exists." });
+    }
+
+    // Hash the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create a new user
+    const newUser = new MemberModel({
+      name,
+      username,
+      email,
+      phone,
+      address,
+      role,
+      bio,
+      password: hashedPassword,
+    });
+
+    // Save the user to the database
+    await newUser.save();
+
+    res.status(201).json({ message: "User added successfully!" });
+  } catch (error) {
+    console.error("Error adding user:", error);
+    res.status(500).json({ message: "An error occurred while adding the user." });
+  }
+});
+
 
 module.exports = router;

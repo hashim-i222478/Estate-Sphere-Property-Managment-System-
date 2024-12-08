@@ -15,6 +15,18 @@
 
 .logo img {
   height: 50px;
+  
+  animation: slideInFromLeft 0.5s;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .nav-links {
@@ -30,10 +42,23 @@
   font-weight: bold;
   font-size: 18px;
   transition: color 0.3s ease, transform 0.3s ease;
+  animation: slideInFromTop 0.5s;
+}
+
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .nav-links a:hover {
-  color: #ffde59;
+  color: #2e31dd;
   transform: scale(1.1);
 }
 
@@ -84,7 +109,19 @@
 
 .profile-container {
   position: relative;
+  animation: slideInFromLeft 0.5s;
 }
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
 
 .profile-icon {
   width: 40px;

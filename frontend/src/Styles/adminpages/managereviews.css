@@ -1,0 +1,202 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+
+    background-size: cover; /* Cover the entire screen */
+    background-attachment: fixed; /* Make the background static */
+    background-position: center; /* Center the background image */
+}
+
+/* Container for all reviews */
+.reviews-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px;
+}
+
+/* Heading Section */
+.heading {
+    margin-top: 50px;
+    margin: 100px auto 20px auto;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+}
+
+.heading h2 {
+    font-size: 28px;
+}
+
+.heading p {
+    font-size: 16px;
+    margin: 10px 0 0;
+}
+
+/* Individual review item styling */
+.review-item {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-item:hover {
+    background-color: #e9ecef;
+    transform: translateY(-5px);
+}
+
+/* Review text styling for readability */
+.review-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Property and review details */
+.review-item p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.review-item p strong {
+    color: #007bff;
+}
+
+/* Button styling */
+.button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.view-details-button,
+.sort-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.view-details-button:hover,
+.sort-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+/* Filters Section */
+.filters {
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* Ensure filters are in one row */
+}
+
+/* Filter Inputs */
+.filters input[type="number"],
+.filters input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 200px;
+}
+
+.filters input[type="number"]:focus,
+.filters input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Filter Buttons */
+.filter-button,
+.reset-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    color: white;
+}
+
+.filter-button {
+    background-color: #28a745;
+}
+
+.filter-button:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+.reset-button {
+    background-color: #dc3545;
+}
+
+.reset-button:hover {
+    background-color: #c82333;
+    transform: translateY(-3px);
+}
+
+.sort-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.sort-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: row;
+        padding: 15px;
+        flex-wrap: nowrap; /* Ensure filters are in one row */
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+    }
+
+    .reviews-container {
+        grid-template-columns: 1fr; /* One column for smaller screens */
+    }
+
+    .filter-button,
+    .reset-button {
+        width: auto; /* Auto-width buttons for small screens */
+    }
+}

@@ -1,0 +1,86 @@
+.user-form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    z-index: 1000; /* Ensure the modal is on top */
+    animation: fadeIn 0.5s ease; /* Added animation for fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.user-form {
+    background-color: #f8f9fa; /* Changed background color for better readability */
+    color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    max-width: 600px; /* Added max-width for better responsiveness */
+    
+   margin-top: 250px; /* Added margin-top to center the modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow for better visual */
+}
+
+.user-form h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.user-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Added bold font for labels */
+}
+
+.user-form select,
+.user-form input,
+.user-form textarea {
+    width: 100%;
+    padding: 10px; /* Increased padding for better usability */
+    margin-bottom: 15px; /* Increased margin-bottom for better spacing */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.user-form select:focus,
+.user-form input:focus,
+.user-form textarea:focus {
+    border-color: #007BFF; /* Added focus state for better accessibility */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Added box-shadow for focus state */
+}
+
+.form-actions {
+    text-align: right; /* Align buttons to the right */
+}
+
+.form-actions button {
+    padding: 10px 20px; /* Adjusted padding for better button size */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007BFF; /* Added background color for buttons */
+    color: white; /* Added text color for buttons */
+    transition: background-color 0.3s ease; /* Added transition for hover effect */
+}
+
+.form-actions button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+    opacity: 0.9;
+}
