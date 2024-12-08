@@ -22,7 +22,7 @@ const [formMode, setFormMode] = useState("add"); // Use this to toggle between '
         return;
       }
     fetchUsers();
-  }, []);
+  }, [users]);
 
   const fetchUsers = async () => {
     try {
@@ -34,14 +34,11 @@ const [formMode, setFormMode] = useState("add"); // Use this to toggle between '
   };
 
   const handleAddUser = () => {
-    setSelectedUser({
-      username: "",
-      email: "",
-      role: ""
-    });
+    setSelectedUser({}); // Ensure a clean form for adding users
     setFormMode("add");
     setShowForm(true);
-  };
+};
+
 
   const handleEditUser = (user) => {
     setSelectedUser(user);
@@ -50,7 +47,7 @@ const [formMode, setFormMode] = useState("add"); // Use this to toggle between '
 };
 const handleSubmit = async (userData) => {
     try {
-        const url = formMode === "edit" ? "http://localhost:5000/api/vendor/userprofile/update-profile" : "http://localhost:5000/api/admin/users";
+        const url = formMode === "edit" ? "http://localhost:5000/api/vendor/userprofile/update-profile" : "http://localhost:5000/api/vendor/userprofile/add-user";
         const method = axios[formMode === "edit" ? "post" : "post"]; // Assuming both use POST as your update endpoint uses POST
 
         const response = await method(url, userData);

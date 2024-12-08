@@ -55,7 +55,7 @@ const AdminFooter = () => {
         <div className="footer-company">
           <h4>Company</h4>
           <ul>
-            <li>About Us</li>
+            <li><a href="/about">About Us</a></li>
             <li>Contact Us</li>
             <li>Privacy Policy</li>
             <li>Terms of Service</li>
