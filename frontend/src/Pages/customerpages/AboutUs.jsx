@@ -1,0 +1,61 @@
+import React from 'react';
+import '../../Styles/customer/AboutUs.css'; // Importing the CSS file
+import AdminFooter from '../../components/Customercomponents/footer';
+import AdminHeader from '../../components/Customercomponents/Navbar';
+import backgroundImage from './b.jpg'; // Importing the background image
+const AboutUs = () => {
+    return (
+        <>
+        <AdminHeader />
+        <div class="background" style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            height: "170vh",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            textAlign: "center",
+            fontFamily: "Arial, sans-serif",
+            fontSize: "1.5rem",
+           
+
+        }}>
+        
+        <div className="about-us">
+            <h1>About Us</h1>
+            <section className="about-content">
+                <h2>Our Mission</h2>
+                <p>To provide efficient, reliable, and user-friendly property management solutions that help property owners and tenants streamline their operations and improve their living and investment experiences.</p>
+            </section>
+            <section className="about-content">
+                <h2>Our Vision</h2>
+                <p>To be the leading property management platform that innovates and sets standards for the industry.</p>
+            </section>
+            <section className="team">
+                <h2 class name="team-heading">Meet Our Team</h2>
+                <div className="team-members">
+                    <div className="member">
+                        <img src="data:image/png;base64,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" alt="Member Name" />
+                        <h3>Hashim Ahmad</h3>
+                        <p>CEO</p>
+                    </div>
+                    <div className="member">
+                        <img src="data:image/png;base64,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" alt="Member Name" />
+                        <h3>Shoukat Khan</h3>
+                        <p>CTO</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+        <AdminFooter />
+        </>
+    );
+}
+
+export default AboutUs;
