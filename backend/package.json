@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "backend": "file:",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -22,5 +23,6 @@
     "nodemailer": "^6.9.16",
     "path": "^0.12.7",
     "twilio": "^5.3.6"
+  
   }
 }

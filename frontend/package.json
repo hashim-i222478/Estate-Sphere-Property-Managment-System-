@@ -15,9 +15,11 @@
     "chart.js": "^4.4.6",
     "firebase": "^11.0.2",
     "flowbite-react": "^0.10.2",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {

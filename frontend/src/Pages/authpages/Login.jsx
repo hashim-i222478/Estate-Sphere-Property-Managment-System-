@@ -21,11 +21,11 @@ const Login = () => {
           localStorage.setItem("token", result.data.token);
           if (result.data.member.role === "vendor") {
             navigate("/vendorlandingpage"); // Redirect to vendor landing page
-          } // else if (result.data.member.role === "customer") {
-          //  navigate("/vendorlandingpage"); // Redirect to vendor landing page
-          //} else {
-          //  navigate("/vendorlandingpage"); // Redirect to vendor landing page
-          //}
+          }  else if (result.data.member.role === "customer") {
+            navigate("/vendorlandingpage"); // Redirect to vendor landing page
+          } else {
+            navigate("/adminLandingPage"); // Redirect to vendor landing page
+          }
         } else {
           alert(result.data);
         }

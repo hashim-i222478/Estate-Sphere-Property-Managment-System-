@@ -1,0 +1,122 @@
+.about-us {
+    max-width: 1200px;
+    margin-top: 100px;
+    margin: 100px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.about-us h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+.about-content {
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 5px solid #012d64; /* Blue accent */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+    font-size: 18px;
+    
+}
+
+.about-content h2 {
+    color: #007BFF; /* Blue accent */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 29px;
+}
+
+.team {
+    margin-top: 20px;
+}
+
+.team-heading {
+    text-align: center;
+    color: #ffffff;
+}
+
+
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #012d64; /* Blue accent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+}
+
+.member {
+    text-align: center;
+    margin: 10px;
+    color: #ffffff;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #007BFF;
+}
+
+.member h3 {
+    margin-top: 10px;
+    color: #0044ff;
+}
+
+.member p {
+    color: #d8d6d6;
+}
+@media (max-width: 768px) {
+    .about-content {
+        padding: 10px;
+    }
+
+    .team-members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member {
+        margin: 20px 0;
+    }
+
+    .member img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us {
+        padding: 10px;
+    }
+
+    .about-us h1 {
+        font-size: 24px;
+    }
+
+    .about-content h2 {
+        font-size: 20px;
+    }
+
+    .member h3 {
+        font-size: 18px;
+    }
+
+    .member p {
+        font-size: 14px;
+    }
+}

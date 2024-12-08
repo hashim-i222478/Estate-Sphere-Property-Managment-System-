@@ -12,6 +12,18 @@ import VendorProfile from "./vendorpages/VendorProfile";
 import VendorMessaging from "./vendorpages/VendorMessaging";
 import VendorDashboard from "./vendorpages/VendorDashboard";
 import VendorMaintenance from "./vendorpages/VendorMaintenance";
+import AdminLandingpage from "./adminPages/AdminLandingpage";
+import AdminProfile from "./adminPages/AdminProfile";
+import ManageProperty from "./adminPages/ManageProperty";
+import ManageUserProfile from "./adminPages/ManageUserProfile";
+import UserForm from "../components/AdminComponents/UserForm";
+import ManageReviews from "./adminPages/ManageReviews";
+import PropertyAnalytics from "./adminPages/PropertyAnalytics";
+import Reports from "./adminPages/Reports";
+import About from "./adminPages/About";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +40,16 @@ function App() {
         <Route path="/vendormessaging" element={<VendorMessaging />} />
         <Route path="/vendordashboard" element={<VendorDashboard />} />
         <Route path="/vendormaintenance" element={<VendorMaintenance />} />
+        <Route path="/adminLandingPage" element={<AdminLandingpage />} />
+        <Route path="/adminprofile" element={<AdminProfile />} />
+        <Route path="/propertymanagement" element={<ManageProperty />} />
+        <Route path="/usermanagement" element={<ManageUserProfile />} />
+        <Route path="/userform" element={<UserForm />} />
+        <Route path="/Reviews" element={<ManageReviews />} />
+        <Route path="/PropertyAnalytics" element={<PropertyAnalytics />} />
+        <Route path="/Reports" element={<Reports />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </BrowserRouter>
   );

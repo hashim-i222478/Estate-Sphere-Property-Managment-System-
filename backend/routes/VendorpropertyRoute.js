@@ -64,6 +64,18 @@ router.get("/get_properties/:vendorId", async (req, res) => {
   }
 });
 
+router.get("/get_properties", async (req, res) => {
+  try {
+    const properties = await Property.find().populate("owner");
+    res.status(200).json(properties);
+  } catch (err) {
+    console.error("Error fetching properties:", err);
+    res
+      .status(500)
+      .json({ message: "Server error while fetching properties." });
+  }
+});
+
 // Update property details
 router.post("/edit-property", upload.single("picture"), async (req, res) => {
   try {
@@ -130,6 +142,17 @@ router.post("/delete-property", async (req, res) => {
   } catch (err) {
     console.error("Error deleting property:", err);
     res.status(500).json({ message: "Server error while deleting property." });
+  }
+});
+
+// Fetch all properties sorted by price
+router.get("/get_properties_sorted_by_price", async (req, res) => {
+  try {
+    const properties = await Property.find().populate("owner").sort({ price: 1 });
+    res.status(200).json(properties);
+  } catch (err) {
+    console.error("Error fetching properties:", err);
+    res.status(500).json({ message: "Server error while fetching properties." });
   }
 });
 
