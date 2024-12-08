@@ -7,7 +7,8 @@ const MemberSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true, // Email is usually required
+    required: true, // Email is required
+    unique: true, // Ensure email is unique
   },
   password: {
     type: String,
@@ -32,6 +33,7 @@ const MemberSchema = new mongoose.Schema({
   },
   role: {
     type: String,
+    enum: ["customer", "vendor", "admin"], // Define roles
     default: "customer", // Default role
   },
   profilePicture: String,

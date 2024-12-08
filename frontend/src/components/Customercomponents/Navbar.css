@@ -1,0 +1,180 @@
+/* General Navbar Styling */
+.navbar {
+  background-color: #004aad; /* Vibrant Blue */
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  margin-right: auto; /* Align logo to the left */
+}
+
+.navbar-logo img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  margin-right: 40px; /* Adds spacing between logo and links */
+}
+
+/* Links Styling */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px; /* Space between navigation links */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #ffdd57;
+}
+
+/* Buttons Styling */
+.navbar-buttons .btn {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.btn-outline {
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #004aad;
+}
+
+.btn-primary {
+  background-color: #ffdd57;
+  color: #004aad;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #ffc107;
+}
+
+/* Profile Section */
+.navbar-profile {
+  position: relative;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffdd57;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 2rem;
+  color: white;
+  border: 2px solid #ffdd57;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.profile-image:hover,
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  width: 150px;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  text-decoration: none;
+  display: block;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #004aad;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #f8f9fa;
+}
+
+.navbar-profile:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hamburger Menu */
+.navbar-hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #004aad;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-hamburger {
+    display: block;
+  }
+
+  .navbar-logo img {
+    margin-right: 20px; /* Adjust spacing for mobile view */
+  }
+}

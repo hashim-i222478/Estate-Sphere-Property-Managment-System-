@@ -9,6 +9,17 @@ import ResetPassword from "./authpages/ResetPassword";
 import VendorLandingpage from "./vendorpages/VendorLandingpage";
 import Vendorproperty from "./vendorpages/Vendorproperty";
 import VendorProfile from "./vendorpages/VendorProfile";
+
+import CustomerLandingpage from "./customerpages/CustomerLandingpage";
+import ViewProperties from "./customerpages/ViewProperties";
+import BookedProperties from "./customerpages/BookedProperties";
+import FavoritesPage from "./customerpages/FavoritesPage";
+import MaintenanceRequestModal from "./customerpages/MaintenanceRequestModal";
+import CustomerProfile from "./customerpages/CustomerProfile";
+import AboutUs from "./customerpages/AboutUs";
+import ContactUs from "./customerpages/ContactUs";
+import PaymentPage from "./customerpages/PaymentPage";
+
 import AdminLandingpage from "./adminPages/AdminLandingpage";
 import AdminProfile from "./adminPages/AdminProfile";
 import ManageProperty from "./adminPages/ManageProperty";
@@ -25,7 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SignUp />} />
+        <Route path="/" element={<CustomerLandingpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
@@ -34,6 +45,17 @@ function App() {
         <Route path="/vendorlandingpage" element={<VendorLandingpage />} />
         <Route path="/vendorproperty" element={<Vendorproperty />} />
         <Route path="/vendorprofile" element={<VendorProfile />} />
+
+        <Route path="/customerlandingpage" element={<customerLandingpage />} />
+        <Route path="/viewproperties" element={<ViewProperties />} />
+        <Route path="/bookedproperties" element={<BookedProperties />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/maintenance/:propertyId" element={<MaintenanceRequestModal />} />
+        <Route path="/customerprofile" element={<CustomerProfile />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/payment" element={<PaymentPage />} />
+
         <Route path="/adminLandingPage" element={<AdminLandingpage />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
         <Route path="/propertymanagement" element={<ManageProperty />} />
@@ -44,7 +66,9 @@ function App() {
         <Route path="/Reports" element={<Reports />} />
         <Route path="/about" element={<About />} />
 
+
       </Routes>
+
     </BrowserRouter>
   );
 }

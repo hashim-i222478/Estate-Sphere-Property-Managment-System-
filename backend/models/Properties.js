@@ -51,6 +51,30 @@ const reviewSchema = new mongoose.Schema(
   { _id: false } // Prevent Mongoose from automatically adding an _id field for reviews
 );
 
+// Define the Maintenance Request schema
+const maintenanceRequestSchema = new mongoose.Schema({
+  requestText: {
+    type: String,
+    required: [true, "Request text is required"],
+    maxlength: [500, "Request cannot exceed 500 characters"],
+  },
+  status: {
+    type: String,
+    enum: ["Pending", "In Progress", "Resolved"],
+    default: "Pending",
+  },
+  requestedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Members",
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  notified: { type: Boolean, default: false }, // Add notified flag
+});
+
 // Define the Property schema
 const PropertySchema = new mongoose.Schema(
   {
@@ -97,10 +121,12 @@ const PropertySchema = new mongoose.Schema(
       min: [0, "Ratings cannot be less than 0"],
       max: [5, "Ratings cannot be more than 5"],
     },
+    maintenanceRequests: [maintenanceRequestSchema], // Add maintenance requests field
   },
   {
     timestamps: true, // Automatically add createdAt and updatedAt fields
   }
 );
+
 
 module.exports = mongoose.model("Property", PropertySchema);
