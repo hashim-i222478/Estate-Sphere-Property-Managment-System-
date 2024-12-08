@@ -67,7 +67,7 @@ const AdminHeader = () => {
           <a href="./adminlandingpage">Home</a>
           <a href="./propertymanagement">Property Management</a>
           <a href="./usermanagement">User Management</a>
-          <a href="./analytics">Analytics</a>
+          <a href="./PropertyAnalytics">Analytics</a>
           <a href="./reports">Reports</a>
           <a href="./Reviews">Reviews</a>
           <a href="./login">Logout</a>

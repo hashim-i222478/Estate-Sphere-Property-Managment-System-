@@ -6,23 +6,25 @@ import "../../Styles/adminpages/adminlandingpage.css";
 const AdminLandingPage = () => {
   return (
     <div className="landing-page">
-      {/* Hero Section */}
-      <div
-        className="hero"
-        style={{
-          backgroundImage:
-            "url('https://www.investopedia.com/thmb/XPnvXjFTJnA8j8VBEtNc7DfduN4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/INV_Real_Property_GettyImages-200478960-001-080ea7835ec1444881eddbe3b2a5a632.jpg')",
-        }}
-      >
-        <AdminHeader />
+        <div
+          className="hero"
+          style={{
+            background:
+          "url('https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed",
+            backgroundSize: 'cover',
+            width: '100%',
+            height: '100vh',
+          }}
+        >
+          <AdminHeader />
 
-        <div className="hero-overlay">
-          <h1>Welcome to the Admin Dashboard</h1>
-          <p>Manage your real estate portfolio effectively and efficiently.</p>
+          <div className="hero-overlay">
+            <h1>Welcome to the Admin Dashboard</h1>
+            <p>Manage your real estate portfolio effectively and efficiently.</p>
+          </div>
         </div>
-      </div>
 
-      {/* Admin Module Section */}
+        {/* Admin Module Section */}
       <div className="admin-module">
         <div className="container">
           <h2>Admin Tools</h2>

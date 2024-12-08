@@ -133,4 +133,17 @@ router.post("/delete-property", async (req, res) => {
   }
 });
 
+// Fetch all properties sorted by price
+router.get("/get_properties_sorted_by_price", async (req, res) => {
+  try {
+    const properties = await Property.find().populate("owner").sort({ price: 1 });
+    res.status(200).json(properties);
+  } catch (err) {
+    console.error("Error fetching properties:", err);
+    res.status(500).json({ message: "Server error while fetching properties." });
+  }
+});
+
+
+
 module.exports = router;
