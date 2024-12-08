@@ -1,0 +1,163 @@
+/* Overall body and font settings */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main container styles */
+.profile-container_1 {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+/* Sidebar styles */
+.profile-sidebar {
+  width: 250px;
+  background: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.profile-sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.profile-sidebar ul {
+  list-style: none;
+}
+
+.profile-sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  transition: background 0.3s;
+}
+
+.profile-sidebar ul li a:hover,
+.profile-sidebar ul li a:focus {
+  background: #444;
+}
+
+/* Main content area */
+.profile-main {
+  flex: 1;
+  padding: 20px;
+}
+
+.profile-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Profile header and details styling */
+.profile-header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.upload-button {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-input {
+  display: none;
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.profile-details label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+.profile-details input[type="text"],
+.profile-details input[type="email"],
+.profile-details input[type="tel"],
+.profile-details textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.profile-details textarea {
+  height: 100px;
+}
+
+/* Button styling */
+.save-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+/* Password update and account settings form */
+.password-fields label,
+.account-settings label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.account-settings input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.form-select {
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-container_1 {
+      flex-direction: column;
+  }
+
+  .profile-sidebar {
+      width: 100%;
+  }
+
+  .profile-main {
+      padding: 20px;
+  }
+}

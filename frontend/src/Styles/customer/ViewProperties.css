@@ -1,0 +1,108 @@
+.view-properties-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filters input,
+.filters button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.filters button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.property-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.property-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-details {
+  padding: 15px;
+}
+
+.property-details h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.property-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.property-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.weather-button,
+.book-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.weather-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.book-button {
+  background-color: #ffc107;
+  color: black;
+}
+
+.book-button.disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.reviews {
+  padding: 15px;
+  background-color: #f8f9fa;
+  font-size: 14px;
+}
+
+.review {
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  gap: 10px;
+}
