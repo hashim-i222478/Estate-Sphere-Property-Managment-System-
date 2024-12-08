@@ -8,7 +8,8 @@ function UserForm({ user, onClose, onSubmit, mode }) {
         email: '',
         phone: '',
         address: '',
-        bio: ''
+        bio: '',
+        password: ''
     });
 
     // Load user data into the form when editing
@@ -20,7 +21,8 @@ function UserForm({ user, onClose, onSubmit, mode }) {
                 email: user.email || '',
                 phone: user.phone || '',
                 address: user.address || '',
-                bio: user.bio || ''
+                bio: user.bio || '',
+                password: ''
             });
         }
     }, [user, mode]);
@@ -40,7 +42,10 @@ function UserForm({ user, onClose, onSubmit, mode }) {
 
     return (
         <div className="user-form-modal">
+            
             <form onSubmit={handleSubmit} className="user-form">
+            <h2>{mode === 'edit' ? 'Edit User' : 'Add User'}</h2>
+            
                 <label htmlFor="name">Name:</label>
                 <input id="name" name="name" value={formData.name} onChange={handleChange} required />
 
@@ -49,6 +54,19 @@ function UserForm({ user, onClose, onSubmit, mode }) {
 
                 <label htmlFor="email">Email:</label>
                 <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+                {mode === "add" && (
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input id="password" name="password" type="password" value={formData.password} onChange={handleChange} required />
+                    </div>
+                )}
+
+                <label htmlFor="role">Role:</label>
+                <select id="role" name="role" value={formData.role} onChange={handleChange}>
+                    <option value="customer">Customer</option>
+                    <option value="admin">Admin</option>
+                    <option value="vendor">Vendor</option>
+                </select>
 
                 <label htmlFor="phone">Phone:</label>
                 <input id="phone" name="phone" value={formData.phone} onChange={handleChange} />

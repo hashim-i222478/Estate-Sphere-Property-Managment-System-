@@ -1,0 +1,135 @@
+.property_heading {
+    margin-top: 50px;
+    margin: 100px auto 10px auto;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+}
+
+.property_para {
+    margin: 10px auto;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+}
+
+/* Container for property cards */
+.properties_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Individual property card styles */
+.property_card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: calc(33.333% - 40px);
+    margin: 20px;
+    padding: 20px;
+    animation: slideInFromTop 0.5s;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.property_card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.property_card h3 {
+    color: #4db6d6;
+    margin-top: 0;
+}
+
+.property_card p {
+    color: #b1b3b3;
+    line-height: 1.5;
+}
+
+/* Styles for map container embedded in property cards */
+.map-container {
+    height: 200px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 500;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .property_card {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .property_card {
+        width: calc(100% - 40px);
+    }
+}
+
+
+/* Styling for filter and sorting controls */
+.filter-sort-controls {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 10px auto;
+    padding: 10px 20px;
+    width: fit-content;
+}
+
+.filter-sort-controls input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.filter-sort-controls button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-sort-controls button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .filter-sort-controls {
+        flex-direction: column;
+    }
+}
