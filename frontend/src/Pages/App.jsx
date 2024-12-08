@@ -9,8 +9,15 @@ import ResetPassword from "./authpages/ResetPassword";
 import VendorLandingpage from "./vendorpages/VendorLandingpage";
 import Vendorproperty from "./vendorpages/Vendorproperty";
 import VendorProfile from "./vendorpages/VendorProfile";
-import CustomerLandingpage from "./customerpages/customerlandingpage";
+import CustomerLandingpage from "./customerpages/CustomerLandingpage";
 import ViewProperties from "./customerpages/ViewProperties";
+import BookedProperties from "./customerpages/BookedProperties";
+import FavoritesPage from "./customerpages/FavoritesPage";
+import MaintenanceRequestModal from "./customerpages/MaintenanceRequestModal";
+import CustomerProfile from "./customerpages/CustomerProfile";
+import AboutUs from "./customerpages/AboutUs";
+import ContactUs from "./customerpages/ContactUs";
+import PaymentPage from "./customerpages/PaymentPage";
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +33,15 @@ function App() {
         <Route path="/vendorprofile" element={<VendorProfile />} />
         <Route path="/customerlandingpage" element={<customerLandingpage />} />
         <Route path="/viewproperties" element={<ViewProperties />} />
+        <Route path="/bookedproperties" element={<BookedProperties />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/maintenance/:propertyId" element={<MaintenanceRequestModal />} />
+        <Route path="/customerprofile" element={<CustomerProfile />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
+
     </BrowserRouter>
   );
 }

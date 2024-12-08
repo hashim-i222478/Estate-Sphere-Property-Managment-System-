@@ -68,34 +68,33 @@ router.post("/review/:id", verifyToken, async (req, res) => {
   }
 });
 
-// Route 3: Book a property (requires authentication)
-router.post("/book/:id", verifyToken, async (req, res) => {
+
+
+router.get("/top-rated", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { limit } = req.query; // Allow client to specify the limit
+    const topLimit = Number(limit) || 10; // Default to top 10 if limit not provided
 
-    // Find the property by ID
-    const property = await Property.findById(id);
-    if (!property) {
-      return res.status(404).json({ error: "Property not found" });
+    // Fetch properties sorted by avgRatings in descending order
+    const topProperties = await Property.find({ availability: true }) // Only available properties
+      .sort({ avgRatings: -1 }) // Sort by avgRatings (highest first)
+      .limit(topLimit); // Limit the results
+
+    if (topProperties.length === 0) {
+      return res.status(404).json({ message: "No properties found." });
     }
 
-    // Check if the property is already booked
-    if (!property.availability) {
-      return res.status(400).json({ error: "Property is already booked" });
-    }
-
-    // Mark the property as booked
-    property.availability = false;
-    await property.save();
-
-    res.status(200).json({ message: "Property booked successfully!" });
+    res.status(200).json({
+      message: `Top ${topProperties.length} properties fetched successfully.`,
+      properties: topProperties,
+    });
   } catch (error) {
-    console.error("Error booking property:", error);
-    res.status(500).json({ error: "Failed to book property" });
+    console.error("Error fetching top-rated properties:", error);
+    res.status(500).json({ error: "Failed to fetch top-rated properties." });
   }
 });
 
-// Route 4: Get property details by ID
+// Route: Get property details by ID
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -109,8 +108,10 @@ router.get("/:id", async (req, res) => {
     res.status(200).json(property);
   } catch (error) {
     console.error("Error fetching property details:", error);
-    res.status(500).json({ error: "Failed to fetch property details" });
+    res.status(500).json({ error: "Failed to fetch property details." });
   }
 });
+
+
 
 module.exports = router;

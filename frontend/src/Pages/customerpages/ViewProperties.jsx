@@ -2,8 +2,28 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Customercomponents/Navbar";
 import Footer from "../../components/Customercomponents/footer";
-import "./ViewProperties.css";
+import "../../Styles/customer/ViewProperties.css";
+import propimg from "./prop.jpg";
+import { useNavigate } from "react-router-dom";
 const geminiApiKey = "AIzaSyCJ38Mk1dl2jdWeYR7LaM5bI4y9YZz_c9M";
+
+
+//boolean value to check if the user is logged in or not
+const token = localStorage.getItem("token");
+let isLoggedIn = false;
+
+if (token) {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const isExpired = payload.exp * 1000 < Date.now();
+    isLoggedIn = !isExpired; //this will return true if the token is not expired
+  } catch (error) {
+    console.error("Error decoding token:", error);
+  }
+}
+
+console.log("Is user logged in?", isLoggedIn);
+
 
 async function queryGeminiApi(userInput) {
   const API_KEY = geminiApiKey;  
@@ -58,12 +78,16 @@ async function queryGeminiApi(userInput) {
 
 const ViewProperties = () => {
   const [properties, setProperties] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     location: "",
     minPrice: "",
     maxPrice: "",
   });
-  const [loading, setLoading] = useState(true);
+
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   // Fetch properties from the API
   const fetchProperties = async () => {
@@ -74,7 +98,8 @@ const ViewProperties = () => {
       const response = await axios.get("http://localhost:5000/api/properties", {
         params: { location, minPrice, maxPrice },
       });
-      setProperties(response.data);
+      const availableProperties = response.data.filter(property => property.availability);
+      setProperties(availableProperties);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching properties:", error);
@@ -82,11 +107,22 @@ const ViewProperties = () => {
     }
   };
   
+  const handleBookProperty = (property) => {
+    if (!isLoggedIn) {
+      alert("You need to be logged in to book a property.");
+      window.location.href = "/login";
+      return;
+    }
+
+    // Navigate to the payment page with property details
+    navigate("/payment", { state: { property } });
+  };
 
 
   useEffect(() => {
     fetchProperties();
-  }, []);
+  }, []); // Empty dependency array to run only once on component load
+
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -97,25 +133,65 @@ const ViewProperties = () => {
     fetchProperties();
   };
 
-  const handleBookProperty = async (propertyId) => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        return alert("Please log in to book a property.");
-      }
 
-      await axios.post(
-        `http://localhost:5000/api/properties/book/${propertyId}`,
-        {},
-        {
-          headers: { Authorization: `Bearer ${token}` },
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      if (isLoggedIn) {
+        try {
+          const favoritesResponse = await axios.get('http://localhost:5000/api/favorites', {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setFavorites(favoritesResponse.data.map(property => property._id));
+
+        } catch (error) {
+          console.error("Failed to fetch favorites:", error);
         }
-      );
-      alert("Property booked successfully!");
-      fetchProperties(); // Refresh properties to update availability
+      }
+    };
+
+    fetchProperties();
+    fetchFavorites();
+  }, [token]); // Run this effect whenever the token changes and on component load
+
+  
+  const handleToggleFavorite = async (propertyId) => {
+    const isFavorite = favorites.includes(propertyId);  // Check if the property is already in favorites
+
+    // Check if the user is logged in and has a valid token
+    if (!isLoggedIn || !token) {
+      alert("You need to be logged in to add to favorites.");
+      window.location.href = "/login";  // Redirect to login page
+      return;
+    }
+
+    try {
+      let response;
+      
+      // Handle "Remove from favorites"
+      if (isFavorite) {
+        const response = await axios.delete(`http://localhost:5000/api/favorites/remove/${propertyId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`  // Send the token for authorization
+          }
+        });
+        
+        // If successful, update the favorites list by removing the property ID
+        setFavorites(prevFavorites => prevFavorites.filter(id => id !== propertyId));
+
+      } else {
+        // Handle "Add to favorites"
+        response = await axios.post(`http://localhost:5000/api/favorites/add/${propertyId}`, {}, {
+          headers: {
+            Authorization: `Bearer ${token}`  // Send the token for authorization
+          }
+        });
+        
+        // If successful, add the property ID to the favorites list
+        setFavorites(prevFavorites => [...prevFavorites, propertyId]);
+      }
     } catch (error) {
-      console.error("Error booking property:", error);
-      alert(error.response?.data?.error || "Failed to book property.");
+      console.error("Error updating favorites:", error);
+      alert("Failed to update favorites. Please try again.");
     }
   };
 
@@ -143,7 +219,7 @@ const ViewProperties = () => {
   };
 
   return (
-    <div style={{backgroundImage: 'url("https://th.bing.com/th/id/OIP.gl1fdFXzkgcSwyYSa_U07QHaE8?w=640&h=427&rs=1&pid=ImgDetMain")',
+    <div style={{backgroundImage: `url(${propimg})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed'}}>
@@ -184,8 +260,9 @@ const ViewProperties = () => {
           ) : properties.length > 0 ? (
             properties.map((property) => (
               <div key={property._id} className="property-card">
+                {/* apply the import image */}
                 <img
-                  src={`http://localhost:5000/uploads/${property.picture}`}
+                  src={propimg}
                   alt={property.title}
                   className="property-image"
                 />
@@ -205,7 +282,7 @@ const ViewProperties = () => {
                       View Weather
                     </button>
                     <button
-                      onClick={() => handleBookProperty(property._id)}
+                      onClick={() => handleBookProperty(property)}
                       className={`book-button ${
                         !property.availability ? "disabled" : ""
                       }`}
@@ -213,6 +290,14 @@ const ViewProperties = () => {
                     >
                       {property.availability ? "Book Now" : "Not Available"}
                     </button>
+                  {/*button to add to favourites width*/}
+                    <button
+                      onClick={() => handleToggleFavorite(property._id)}
+                      className="favorite-button"
+                    >
+                      {favorites.includes(property._id) ? "❤️" : "🤍"}
+                    </button>
+
                   </div>
                 </div>
 

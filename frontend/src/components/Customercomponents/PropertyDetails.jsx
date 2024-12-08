@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import "../../Styles/customerpages/PropertyDetails.css";
 import axios from "axios";
 
+// boolean value to check if the user is logged in or not
+const isLoggedIn = localStorage.getItem("token") ? true : false;
+
 const PropertyDetails = ({ property, onClose }) => {
   if (!property) return null; // Return null if no property is passed
 
@@ -63,7 +66,7 @@ const PropertyDetails = ({ property, onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>
-          ×
+          ×  
         </button>
         {property.picture && (
           <img
@@ -90,7 +93,7 @@ const PropertyDetails = ({ property, onClose }) => {
         <div className="reviews-section">
           <h3>Customer Reviews</h3>
           {updatedProperty.reviews && updatedProperty.reviews.length > 0 ? (
-            updatedProperty.reviews.map((review, index) => (
+            updatedProperty.reviews.map((review, index) => ( 
               <div key={index} className="review">
                 <h4>{review.customerName}</h4>
                 <p>{review.reviewText}</p>

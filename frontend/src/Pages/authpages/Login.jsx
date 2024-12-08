@@ -20,7 +20,7 @@ const Login = () => {
         console.log(result);
         if (result.data.message === "Login successful") {
           localStorage.setItem("token", result.data.token);
-          navigate("/vendorlandingpage");
+          navigate("/viewproperties");
         } else {
           alert(result.data);
         }
