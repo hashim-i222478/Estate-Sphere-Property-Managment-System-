@@ -1,0 +1,752 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 0;
+  background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-jplenio-1103970.jpg&fm=jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Container for Featured Products */
+.featured-products {
+  position: relative;
+  margin-bottom: 20px;
+  color: #fff;
+  max-width: 100%;
+}
+
+/* Featured Product Section */
+.featured-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding-bottom: 20px; /* Ensure there's space between the image and the description */
+}
+
+/* Styling for the featured image */
+.featured-image {
+  width: 50%; /* Adjust the width to make the image smaller */
+  height: 50%; /* Keep the aspect ratio intact */
+  object-fit: contain; /* Ensure the image covers the area */
+  transition: opacity 2s ease;
+  margin-bottom: 10px;
+  margin-top: 80px;
+}
+
+/* Featured Info Section */
+/* Featured Info Section */
+.featured-info {
+  padding: 25px; /* Balanced padding for spacing */
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 12px; /* Smooth corners for modern design */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center-align the content */
+  margin: 20px auto; /* Center the section with spacing above and below */
+  max-width: 800px; /* Limit the maximum width for a clean layout */
+  font-family: "Arial", sans-serif; /* Professional and readable font */
+}
+
+/* Title Styling */
+.featured-info h1 {
+  font-size: 24px; /* Prominent title size */
+  font-weight: bold; /* Bold to emphasize the title */
+  color: #022549; /* Elegant dark navy blue */
+  margin-bottom: 15px; /* Space below the title */
+  text-transform: uppercase; /* Professional uppercase look */
+}
+
+/* Property Details Styling */
+.featured-info p {
+  font-size: 18px; /* Readable size for details */
+  color: #555; /* Neutral dark gray for text */
+  margin: 10px 0; /* Space between each detail */
+}
+
+/* Bold Labels for Key Details */
+.featured-info p strong {
+  font-weight: bold; /* Bold for labels like Price, Address, and Area */
+  color: #2c3e50; /* Darker shade for headings */
+}
+
+/* Normal Values */
+.featured-info p span {
+  font-weight: normal; /* Normal font weight for values */
+  color: #555; /* Neutral gray for values */
+}
+
+/* Description Styling */
+.featured-info .description span {
+  color: #666; /* Softer gray for secondary text */
+  font-size: 16px; /* Slightly smaller size for descriptions */
+  text-align: justify; /* Align description for clean formatting */
+  line-height: 1.6; /* Comfortable line spacing */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featured-info {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .featured-info h1 {
+    font-size: 22px; /* Adjust title size for smaller screens */
+  }
+
+  .featured-info p {
+    font-size: 16px; /* Adjust detail size for smaller screens */
+  }
+
+  .featured-info .description span {
+    font-size: 14px; /* Compact description text for smaller screens */
+  }
+}
+
+.content-header {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Optional: Centers the button vertically if needed */
+}
+
+/* Add Property Button */
+.add-property-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+  width: auto; /* Auto width ensures it doesn’t stretch unnecessarily */
+  margin-top: 20px;
+}
+
+.add-property-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+.properties-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Property Card Image Styling */
+.property-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px; /* Space below the image */
+}
+
+/* Other properties related to grid and card size */
+.property-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.property-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 8px;
+}
+
+.property-location {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.property-card:hover {
+  transform: scale(1.02);
+}
+
+/* Action Buttons Styling */
+.action-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  gap: 10px; /* Add space between buttons */
+}
+
+/* Button Styling */
+.view-details-button,
+.edit-button,
+.delete-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin: 0; /* Ensure no default margins */
+}
+
+.view-details-button {
+  background: #6a94c0 !important; /* Green for View Details */
+  color: white !important;
+}
+
+.view-details-button:hover {
+  background: #3b71ab !important; /* Darker Green on Hover */
+}
+
+.edit-button {
+  background: #6c757d !important; /* Yellow for Edit */
+  color: white !important;
+}
+
+.edit-button:hover {
+  background: #4e6478 !important; /* Darker Yellow on Hover */
+}
+
+.delete-button {
+  background: #dc3545 !important; /* Red for Delete */
+  color: white !important;
+}
+
+.delete-button:hover {
+  background: #b02a37 !important; /* Darker Red on Hover */
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-close-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  background: #b02a37;
+  transform: scale(1.2);
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  margin-bottom: 20px; /* Add space below the image */
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 0;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+  word-wrap: break-word;
+  text-align: center; /* Center-align the text */
+}
+
+.close-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0px; /* Adjusted for proper distance from the top */
+  right: 0px; /* Adjusted for proper distance from the right */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background: #b02a37;
+  transform: scale(1.2);
+}
+
+.close-button:focus {
+  outline: none;
+}
+
+/* Reviews Section */
+.reviews-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.reviews-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: #333;
+}
+
+.review-box {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.review {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add space between elements */
+}
+
+.review:last-child {
+  border-bottom: none;
+}
+
+.review-customer-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Visible text color */
+}
+
+.review-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.no-reviews {
+  font-size: 1rem;
+  color: #888;
+  text-align: center;
+}
+/* Adjusted Review Reply Section */
+.reply-section {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 10px; /* Add spacing between input and button */
+  margin-top: 10px;
+}
+
+.reply-input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Rounded edges */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #f5f5f5;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.reply-input:focus {
+  outline: none; /* Remove the default outline */
+  border-color: #007bff; /* Highlight border */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlight shadow */
+}
+/*
+.reply-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px; 
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: 80px; 
+  height: 30px;
+  display: block; 
+  margin: 0 auto;
+}
+*/
+.reply-button {
+  position: absolute; /* Position button inside the input field */
+  top: 50%; /* Center vertically */
+  right: 10px; /* Align to the right of the input field */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 35px; /* Button size */
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px; /* Icon size */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+}
+.reply-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+.reply-button i {
+  font-size: 14px; /* Adjust icon size */
+}
+.reply-button:active {
+  background-color: #003f7f; /* Even darker on active */
+}
+/* Replies Section */
+.replies-list {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 2px solid #ddd;
+}
+
+.replies-list .reply {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.replies-list .reply strong {
+  color: #333; /* Darker color for the person replying */
+  font-weight: bold;
+}
+.input-container {
+  position: relative; /* Enables positioning of button within container */
+  width: 100%;
+}
+/* Reply Section */
+.reply-section {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Reply Input */
+.reply-input {
+  width: 100%;
+  padding: 10px 40px 10px 15px; /* Add padding for button space */
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reply-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /*outline: none;*/
+}
+
+.reply-input.highlighted {
+  border-color: red;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+.reply-icon-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 14px; /* Reduce font size */
+  padding: 5px; /* Add padding for a smaller clickable area */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  width: 25px; /* Optional: Set explicit width */
+  height: 25px; /* Optional: Set explicit height */
+}
+.reply-icon-button:hover {
+  color: #0056b3;
+}
+
+.reply-icon-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Property Form */
+.property-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-heading {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+.form-input,
+.form-textarea,
+.file-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  resize: none;
+  height: 80px;
+}
+
+.file-input {
+  border: none;
+}
+
+.picture-preview {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.picture-preview img {
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-submit-button {
+  display: block; /* Make the button behave as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+  padding: 8px 16px; /* Keep current padding */
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 20%; /* Keep the width as defined */
+  text-align: center; /* Align text inside the button */
+}
+
+.form-submit-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* General Responsive Adjustments */
+@media (max-width: 768px) {
+  .property-grid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+
+  .action-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Add spacing between buttons */
+    align-items: center; /* Center the buttons */
+  }
+
+  .form-submit-button {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 10px 15px; /* Adjust padding */
+    width: auto; /* Let the button adjust its size */
+  }
+
+  .add-property-button {
+    width: auto; /* Let the button size dynamically */
+    padding: 10px 15px;
+  }
+
+  .reply-button {
+    width: 40px; /* Adjust button size for smaller screens */
+    height: 40px;
+    font-size: 16px; /* Slightly larger icon size */
+  }
+
+  .reply-input {
+    padding: 10px 15px 10px 50px; /* Adjust padding for better alignment */
+  }
+
+  .reply-icon-button {
+    font-size: 16px; /* Slightly increase size for better tap targets */
+  }
+}
+
+/* General Button Adjustments */
+button,
+.action-buttons button {
+  width: auto; /* Allow buttons to resize dynamically */
+  padding: 10px 20px; /* Adjust padding for consistent size */
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Add hover and active states */
+button:hover,
+.action-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active,
+.action-buttons button:active {
+  background-color: #004494;
+  transform: translateY(1px);
+}
+
+/* Ensuring Consistent Image Resizing */
+.property-card img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  object-fit: cover; /* Ensure image fits container */
+}
+
+/* Adjusting Modal Responsiveness */
+.modal-content {
+  width: 95%; /* Allow modal to use more space on small screens */
+  max-width: 500px; /* Set a maximum width */
+}
+
+.reply-section {
+  flex-direction: column;
+  gap: 15px; /* Add more space between elements */
+}
+
+/* Ensuring Buttons Scale Well */
+.reply-button {
+  width: 45px; /* Adjust button size */
+  height: 45px;
+  font-size: 18px;
+}
+
+.form-submit-button {
+  width: 100%; /* Ensure full width on smaller screens */
+  max-width: 300px; /* Prevent excessively wide buttons */
+  text-align: center;
+}
+
+/* Adjusting Forms and Inputs */
+.form-input,
+.form-textarea {
+  font-size: 14px;
+  padding: 10px;
+  width: 100%; /* Full width for smaller screens */
+}
+
+/* Specific Responsive Design for Headers */
+@media (max-width: 480px) {
+  h2,
+  h3 {
+    font-size: 20px; /* Scale down headings */
+    text-align: center; /* Center align headings for smaller screens */
+  }
+
+  .add-property-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* Additional Tweaks */
+.property-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.action-buttons button {
+  width: 100%; /* Full width on smaller screens */
+  margin-bottom: 10px;
+}

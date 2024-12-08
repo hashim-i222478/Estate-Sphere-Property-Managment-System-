@@ -1,0 +1,213 @@
+/* Main Container */
+.maintenance-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fc;
+  margin-top: 10 px;
+}
+
+/* Section Headers */
+.maintenance-page-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Property Section */
+.property-section {
+  margin-bottom: 40px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Property Card */
+.property-card_2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.property-image_2 {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.property-details_2 {
+  flex: 1;
+  min-width: 250px;
+}
+
+.property-details_2 h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.property-details_2 p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Maintenance Requests */
+.maintenance-requests {
+  background-color: #f9f9ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-requests h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Request Card */
+/* .request-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+} */
+.request-card {
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px; /* Spacing between cards */
+  border: 1px solid #ddd; /* Subtle border for separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effect */
+}
+.request-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.request-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+.request-card select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease;
+}
+.request-card select:focus {
+  border-color: #007bff; /* Highlight on focus */
+  outline: none;
+}
+
+/* Requested By Styling */
+.request-card strong {
+  color: #007bff; /* Highlighted title text */
+}
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .property-card_2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .property-image_2 {
+    max-width: 100%; /* Full width on smaller screens */
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .property-details_2 {
+    text-align: center; /* Center-align text for mobile */
+    min-width: 100%; /* Expand to full width */
+  }
+
+  .property-details_2 h2 {
+    font-size: 18px; /* Slightly smaller font for titles */
+  }
+
+  .property-details_2 p {
+    font-size: 13px; /* Adjust font size for readability */
+  }
+
+  .maintenance-requests {
+    padding: 15px;
+  }
+
+  .request-card {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .request-card p {
+    font-size: 13px;
+  }
+
+  .maintenance-page-container h1 {
+    font-size: 22px;
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+  .property-card_2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .property-image_2 {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .property-details_2 {
+    text-align: center;
+    min-width: 100%;
+  }
+
+  .property-details_2 h2 {
+    font-size: 16px;
+  }
+
+  .property-details_2 p {
+    font-size: 12px;
+  }
+
+  .maintenance-requests {
+    padding: 10px;
+  }
+
+  .request-card {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .request-card p {
+    font-size: 12px;
+  }
+
+  .maintenance-page-container h1 {
+    font-size: 20px;
+  }
+
+  .maintenance-requests h3 {
+    font-size: 16px;
+  }
+}
