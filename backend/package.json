@@ -23,5 +23,8 @@
     "nodemailer": "^6.9.16",
     "path": "^0.12.7",
     "twilio": "^5.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
